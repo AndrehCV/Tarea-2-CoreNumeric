@@ -40,7 +40,7 @@ namespace core_numeric {
         using T = typename C::value_type;
         T result{};
 
-        // 7. Uso obligatorio de if constexpr
+        // Uso obligatorio de if constexpr
         if constexpr (std::is_integral_v<T>) {
             // Comportamiento para enteros
             for (const auto& value : container) {
@@ -63,7 +63,7 @@ namespace core_numeric {
         return sum(container) / count;
     }
 
-    // 3. Algoritmo variance
+    // Algoritmo variance
     template <Iterable C>
     requires Iterable<C> && Addable<typename C::value_type> && Divisible<typename C::value_type>
     auto variance(const C& container) {
@@ -79,7 +79,7 @@ namespace core_numeric {
         return sum_sq / count;
     }
 
-    // 4. Algoritmo max
+    // Algoritmo max
     template <Iterable C>
     requires Comparable<typename C::value_type>
     auto max(const C& container) {
@@ -93,7 +93,7 @@ namespace core_numeric {
         return current_max;
     }
 
-    // 5. Algoritmo transform_reduce
+    // Algoritmo transform_reduce
     template <Iterable C, typename F>
     auto transform_reduce(const C& container, F func) {
         using ReturnType = decltype(func(*std::begin(container)));
